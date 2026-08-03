@@ -1,0 +1,32 @@
+#port = 포트가 지정이 없으면 티폴트는 8080
+server: 
+ port: 80
+#jsp인 경우에는 MVC구조가 와야한다 => prefix가 들어와야한다 => /WEB-INF/views, suffix: .jsp
+#ThymeLeaf인 경우
+spring:
+  thymeleaf:
+    cache: false
+    encofing: UTF-8 
+    prefix: classpath:templates/
+    suffix: .html
+    mode: HTML
+  datasource:
+      url: jdbc:oracle:thin:@localhost:1521:xe
+      username: hr
+      password: happy
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    database: oracle
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+        format_sql: true	
+        user-sql-comments: true		 
+mybatis:
+  type-aliases-package: com.sist.web.vo
+  mapper-locations: mybatis/mapper/*.xml
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE			
+      
