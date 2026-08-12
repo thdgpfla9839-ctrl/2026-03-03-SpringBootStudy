@@ -1,0 +1,16 @@
+<!-- templates에는 html 파일이 들어가는 폴더 
+     타임리프 사용중이라 사용법이 jsp와는 조금 달라진다
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <ul>
+   <li th:each="vo:${list}">[[${vo.ename}]]-[[${vo.job}]]</li>
+  </ul>
+</body>
+</html>
