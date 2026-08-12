@@ -9,3 +9,4 @@ public interface EmpService {
 	public List<EmpVO> empListData();
 
 }
+ 

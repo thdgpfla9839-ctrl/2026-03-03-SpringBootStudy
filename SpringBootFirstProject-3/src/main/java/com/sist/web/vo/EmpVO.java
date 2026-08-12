@@ -10,3 +10,4 @@ public class EmpVO {
 	private String ename,job,dbday;
 	private Date hiredate;
 }
+ 

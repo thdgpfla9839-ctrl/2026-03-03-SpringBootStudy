@@ -23,3 +23,4 @@ public class EmpController {
 		return "list";
 	}
 }
+ 

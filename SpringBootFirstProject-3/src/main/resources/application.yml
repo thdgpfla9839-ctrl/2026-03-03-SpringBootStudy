@@ -16,3 +16,4 @@ spring:
 mybatis:
   type-aliases-package: com.sist.web.vo
   mapper-locations: mybatis/mapper/*.xml
+ 

@@ -14,3 +14,4 @@ public interface EmpMapper {
 			+"FROM emp")
 	public List<EmpVO> empListData();
 }
+ 

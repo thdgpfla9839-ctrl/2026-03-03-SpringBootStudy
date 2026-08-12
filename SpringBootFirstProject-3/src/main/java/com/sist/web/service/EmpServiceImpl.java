@@ -20,4 +20,4 @@ public class EmpServiceImpl implements EmpService{
 		return mapper.empListData();
 	}
 	
-}
+} 
