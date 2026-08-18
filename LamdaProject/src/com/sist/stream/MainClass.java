@@ -46,7 +46,11 @@ public class MainClass {
         
         System.out.println();
         System.out.println("================================================= 통계 => reduce ================================");
+        int total = list.stream().map(EmpVO::getSal).reduce(0, Integer::sum);
+        System.out.println(total);
         
+        double avg =  list.stream().mapToInt(EmpVO::getSal).average().orElse(0);
+        System.out.println(avg);
         
 	}
 
