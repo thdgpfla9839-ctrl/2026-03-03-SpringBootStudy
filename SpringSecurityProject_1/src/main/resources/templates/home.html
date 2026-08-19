@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"> <!--  이게 있어야 시큐리티 속성을 이용할 수 잇음 sec대신 security라고 써도 됨ㄴ-->
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+.container{
+margin-top: 50px;
+}
+.row{
+ width: 350px;
+ margin: 0px auto;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+   <div class="row">
+    <h3 class="text-center">Home</h3>
+     <table class="table">
+      <tbody>
+       <!--  원래는 <sec:authorize access="isAuthenticated()"> 이렇게 태그의 형식인데 지금처럼 속성으로 써주고 있음 -->
+       <tr sec:authorize="isAuthenticated()">
+        <td class="text-center">
+         로그인 사용자: <span sec:suthentication="principal.username"></span>
+         <!--  <span sec:suthentication="principal.username"></span> => <span sec:suthentication="name"></span> 이렇게 써도 가능 username = ID으로 인식  -->
+        </td>
+       </tr>
+       <!--  admin일 경우  -->
+       <tr sec:authorize="hasRole('ADMIN')">
+        <td class="text-center">
+         <a href="/admin" class="btn btn-sm btn-primary">관리자 페이지</a>
+        </td>
+       </tr>
+       <!--  user인 경우 -->
+       <tr sec:authorize="isAuthenticated()">
+        <td class="text-center">
+         <a href="/user" class="btn btn-sm btn-info">사용자 페이지</a>
+        </td>
+       </tr>
+       <!--  로그아웃 어떻게 처리할지 -->
+       <tr sec:authorize="isAuthenticated()">
+        <td class="text-center">
+         <form method="post" action="/logout">
+          <button type="submit" class="btn btn-sm btn-danger">로그아웃</button>
+         </form>
+        </td>
+       </tr>
+       <!-- 비로그인 상태일 때 -->
+       <tr sec:authorize="isAnonymous()">
+        <td class="text-center">
+         <a href="/login" class="btn btn-sm btn-success">로그인</a>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+   </div>
+  </div>
+</body>
+</html>
