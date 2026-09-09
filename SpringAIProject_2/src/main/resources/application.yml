@@ -1,0 +1,20 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /
+spring:
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+  ai: 
+    google:
+      genai:
+        api-key: ${GEN_KEY}
+        project-id: youtube-api-test-505201
+        location: us-central1
+        chat:
+          model: gemini-3.6-flash
+               
